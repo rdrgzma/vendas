@@ -10,7 +10,7 @@ services:
         image: 'redis:alpine'
 
     mysql:
-        image: 'mysql:8.0'
+        image: 'mysql:5.7'
         working_dir: /application
         volumes:
             - '.:/application'

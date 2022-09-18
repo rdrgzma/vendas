@@ -1,3 +1,18 @@
+<?php
+require_once("conexao.php");
+$senha = '123';
+$senha_crip = md5($senha);
+
+$query = $pdo->query("SELECT * FROM usuarios where nivel = 'SAAS' ");
+$res = $query->fetchAll(PDO::FETCH_ASSOC);
+$total_reg = @count($res);
+if ($total_reg == 0) {
+    // criar um usuario no banco de dados
+    $pdo->query("INSERT INTO usuarios SET empresa='0', nome ='Administrador SAAS', cpf ='000.000.000-00', email ='admin@admin.com', senha='$senha', senha_crip='$senha_crip', ativo='Sim', foto='sem-foto.jpg', nivel='SAAS'");
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
